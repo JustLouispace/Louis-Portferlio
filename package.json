@@ -11,7 +11,9 @@
   "dependencies": {
     "@svgr/webpack": "^8.1.0",
     "framer-motion": "^11.3.21",
-    "next": "14.2.5",
+
+    "install": "^0.13.0",
+    "next": "^14.2.20",
     "portfolio-site-2": "file:",
     "react": "^18",
     "react-dom": "^18",
