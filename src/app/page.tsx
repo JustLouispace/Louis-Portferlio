@@ -1,6 +1,8 @@
 
+import { Education } from "@/sections/Education";
 import { Header } from "@/sections/Header";
 import { HeroSection } from "@/sections/Hero";
+import { ProjectsSection } from "@/sections/Projects";
 
 
 export default function Home() {
@@ -8,7 +10,8 @@ export default function Home() {
     <div>
       <Header />
       <HeroSection />
-
+      <ProjectsSection/>
+      <Education/>
     </div>
   );
 }
