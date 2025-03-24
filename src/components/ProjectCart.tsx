@@ -1,62 +1,55 @@
-"use client";  // ✅ Ensures it's a Client Component
-
-import { useState } from "react";
-import { motion } from "framer-motion"; // ✅ Import Framer Motion for animations
+"use client";
 
 interface ProjectCartProps {
   title: string;
   description: string;
   image: string;
+  details?: string[];
+  technologies?: string;
+  duration?: string;
 }
 
-const ProjectCart: React.FC<ProjectCartProps> = ({ title, description, image }) => {
-  const [expanded, setExpanded] = useState(false);
-
+const ProjectCart: React.FC<ProjectCartProps> = ({ 
+  title, 
+  description, 
+  image,
+  details = [],
+  technologies = "React, Tailwind, etc.",
+  duration = "6 months"
+}) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      className="card lg:card-side bg-base-100 shadow-sm overflow-hidden transition-all duration-300"
-    >
-      {/* Fixed Image Section */}
-      <figure className="w-60 flex-shrink-0"> 
-        <img src={image} alt={title} className="w-full h-40 object-cover" />
-      </figure>
-
-      {/* Expandable Content Section */}
-      <motion.div
-        animate={{ height: expanded ? "auto" : "150px" }} // Expands without affecting image
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="card-body"
-      >
-        <h2 className="card-title">{title}</h2>
-        <p>{description}</p>
-
-        {/* Additional details (hidden by default) */}
-        {expanded && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="mt-2 text-gray-500"
-          >
-            <p>🔹 Additional project details...</p>
-            <p>🔹 Technologies used: React, Tailwind, etc.</p>
-            <p>🔹 Duration: 6 months</p>
-          </motion.div>
-        )}
-
-        <div className="card-actions justify-end">
-          <button
-            className="btn btn-primary transition-all duration-200 hover:scale-105"
-            onClick={() => setExpanded(!expanded)}
-          >
-            {expanded ? "Show Less" : "View More"}
-          </button>
+    <div className="collapse collapse-arrow join-item border-base-300 border">
+      <input type="radio" name="my-projects-accordion" />
+      <div className="collapse-title font-semibold flex items-center gap-4">
+        <img 
+          src={image} 
+          alt={title} 
+          className="w-16 h-16 object-cover rounded-lg"
+        />
+        <div>
+          <h3 className="text-lg">{title}</h3>
+          <p className="text-sm text-gray-500 line-clamp-1">{description}</p>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+      <div className="collapse-content"> 
+        <div className="pt-4">
+          <p className="mb-4">{description}</p>
+          
+          {details.length > 0 && (
+            <div className="mb-4">
+              {details.map((detail, index) => (
+                <p key={index} className="text-gray-600">🔹 {detail}</p>
+              ))}
+            </div>
+          )}
+          
+          <div className="text-sm text-gray-500 space-y-1">
+            <p>🛠️ <span className="font-medium">Technologies:</span> {technologies}</p>
+            <p>⏱️ <span className="font-medium">Duration:</span> {duration}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
