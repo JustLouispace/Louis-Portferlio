@@ -38,17 +38,19 @@ export const AboutSection = () => {
     setActiveTab(tab);
     setIsEducationTabActive(tab === "Education");
   };
-
+  
+  // First useEffect - image carousel
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
     }, 7000);
-
+  
     return () => clearInterval(interval);
-  }, []);
-
+  }, [images.length]); // Added images.length as dependency
+  
+  // Second useEffect - education images carousel
   useEffect(() => {
     if (isEducationTabActive) {
       const interval = setInterval(() => {
@@ -58,13 +60,14 @@ export const AboutSection = () => {
       }, 5000);
       return () => clearInterval(interval);
     }
-  }, [isEducationTabActive]);
-
+  }, [isEducationTabActive, educationImages.length]); // Added educationImages.length
+  
+  // Third useEffect - typing animation
   useEffect(() => {
     let i = 0;
     const text = tabContent[activeTab];
     setDisplayText("");
-
+  
     const typingInterval = setInterval(() => {
       if (i <= text.length) {
         setDisplayText(text.substring(0, i + 1));
@@ -73,9 +76,9 @@ export const AboutSection = () => {
         clearInterval(typingInterval);
       }
     }, 50);
-
+  
     return () => clearInterval(typingInterval);
-  }, [activeTab]);
+  }, [activeTab, tabContent]); // Added tabContent as dependency
 
   const handleDownloadCV = () => {
   // Alternative approach that tries to force download
