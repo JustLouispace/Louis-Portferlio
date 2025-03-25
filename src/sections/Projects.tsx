@@ -117,7 +117,7 @@ export const ProjectsSection = () => {
       },
     },
     {
-      title: "Pokedek",
+      title: "Pokedek Website",
       description:
         "The Pokémon Collection website I developed in my 2nd year is a Pokedex that allows users to collect their Pokémon cards. It also features an admin panel for managing and editing data, as well as user authentication to ensure secure access.",
       image: PokedekImagePath,
