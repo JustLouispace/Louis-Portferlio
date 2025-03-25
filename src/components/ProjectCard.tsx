@@ -3,9 +3,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 
 interface ProjectLink {
-  label: string;
+  label?: string;
   url: string;
-  type: "github" | "figma" | "demo" | "canva";
+  type?: string;
 }
 
 interface ProjectCardProps {
@@ -16,14 +16,7 @@ interface ProjectCardProps {
   details?: string[];
   technologies?: string;
   duration?: string;
-  links?:
-    | {
-        github?: string;
-        figma?: string;
-        demo?: string;
-        canva?: string;
-      }
-    | ProjectLink[];
+  links?: Record<string, string | undefined> | ProjectLink[];
   isOpen: boolean;
   onClick: () => void;
 }
@@ -42,14 +35,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   // Normalize links to always be an array
   const normalizedLinks = Array.isArray(links)
-    ? links
-    : Object.entries(links)
+  ? links
+  : links
+    ? Object.entries(links)
+        .filter(([_, url]) => url !== undefined)
         .map(([type, url]) => ({
           label: type.charAt(0).toUpperCase() + type.slice(1),
-          url: url as string,
-          type: type as "github" | "figma" | "demo" | "canva",
+          url: url as string, // We've filtered out undefined, so this is safe
+          type: type.toLowerCase(),
         }))
-        .filter((link) => link.url);
+    : [];
 
   return (
     <div className="relative z-[1]">
@@ -249,7 +244,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                                   <path d="M12 12a4 4 0 1 1 8 0 4 4 0 0 1-8 0zM4 20a4 4 0 0 1 4-4h4v4a4 4 0 1 1-8 0zM12 0v8h4a4 4 0 1 0 0-8h-4zM4 4a4 4 0 0 0 4 4h4V0H8a4 4 0 0 0-4 4zM4 12a4 4 0 0 0 4 4h4V8H8a4 4 0 0 0-4 4z" />
                                 </svg>
                               )}
-                              {link.label}
+                              {link.label || link.type}
                             </motion.a>
                           ))}
                         </div>

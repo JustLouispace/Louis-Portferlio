@@ -55,7 +55,7 @@ const PokedekadminImagePath = new URL(
 ).href;
 
 export const ProjectsSection = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null); // Changed to null for none open by default
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleProject = (index: number) => {
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
@@ -148,15 +148,12 @@ export const ProjectsSection = () => {
       ],
     },
   ];
-
+  
   return (
-    <div id="projects" className="py-32  md:py-48 lg:py-60 bg-gradient-to-b from-slate-950 to-gray-850 relative z-0 overflow-x-clip">
-      <div
-        className="absolute inset-0 -z-30 opacity-10"
-        style={{ backgroundImage: `url(${BGproject.src})` }}
-      ></div>
+    <div id="projects" className="py-32 md:py-48 lg:py-60 bg-gradient-to-b from-slate-950 to-gray-850 relative z-0 overflow-x-clip">
+      {/* ... rest of your JSX */}
       <div className="container z-10 max-w-5xl ">
-        <h1 className=" text-4xl font-bold mb-4 md:text-5xl text-center mt-10 tracking-wide">
+        <h1 className="text-4xl font-bold mb-4 md:text-5xl text-center mt-10 tracking-wide">
           My Projects
         </h1>
         <div className="join join-vertical w-full mt-10 ">
