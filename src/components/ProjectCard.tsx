@@ -68,7 +68,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             />
             <div className="flex-1">
               <h3 className="text-xl font-bold">{title}</h3>
-              <p className="text-base mt-2 text-gray-600 line-clamp-2">
+              <p className="text-base mt-2 text-gray-400 line-clamp-2">
                 {description}
               </p>
             </div>
@@ -116,7 +116,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 <div className="grid md:grid-cols-3 gap-8">
                   <div className="md:col-span-2">
                     <motion.h4
-                      className="text-lg font-semibold mb-4"
+                      className="text-lg font-semibold mb-4 "
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.1 }}
@@ -125,7 +125,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                     </motion.h4>
 
                     <motion.p
-                      className="mb-4 text-gray-700"
+                      className="mb-4 text-gray-400"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2 }}
@@ -181,7 +181,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                               transition={{ delay: 0.7 + index * 0.05 }}
                             >
                               <span className="text-primary mr-2">•</span>
-                              <span className="text-gray-700">{detail}</span>
+                              <span className="text-gray-300">{detail}</span>
                             </motion.li>
                           ))}
                         </ul>
@@ -198,7 +198,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                       <h4 className="text-lg font-semibold mb-2">
                         Technologies
                       </h4>
-                      <p className="text-gray-700">{technologies}</p>
+                      <p className="text-gray-400">{technologies}</p>
                     </motion.div>
 
                     <motion.div
@@ -207,7 +207,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                       transition={{ delay: 0.35 }}
                     >
                       <h4 className="text-lg font-semibold mb-2">Duration</h4>
-                      <p className="text-gray-700">{duration}</p>
+                      <p className="text-gray-400">{duration}</p>
                     </motion.div>
 
                     {normalizedLinks.length > 0 && (

@@ -63,18 +63,17 @@ export const ProjectsSection = () => {
 
   const projects = [
     {
-      title: "Lawyer Consultation Platform",
+      title: "LawBuddy (Winning 2nd NSC 2024 🏆)",
       description:
-        "A comprehensive platform connecting clients with legal professionals for online consultations and document management.",
+        "This law platform, developed as my 3rd-year project at KMUTT, won 2nd place in the 2024 NSC competition 🏆. It features a chatbot for legal inquiries in Thai and interactive tools for learning about the law, making legal knowledge more accessible and engaging.",
       image: LawyerImagePath,
       additionalImages: [LawyerImageDetailsPath, LawyerImageChatbotPath],
       details: [
-        "Implemented real-time chat functionality",
-        "Developed secure document sharing system",
-        "Created lawyer matching algorithm",
-        "Built admin dashboard for analytics",
+        "AI Search: Easily find legal information with intelligent search functionality.",
+        "AI Chatbot: Ask legal questions in Thai and receive accurate, AI-powered responses.",
+        "AI Education: Interactive tools and resources to help users learn about the law effectively",
       ],
-      technologies: "React, Node.js, MongoDB, Socket.io",
+      technologies: "Postges, Django, React",
       duration: "5 months",
       links: {
         figma:
@@ -86,16 +85,16 @@ export const ProjectsSection = () => {
     {
       title: "Nitrogen Consumption",
       description:
-        "Industrial application for SCGC to monitor and report nitrogen usage at Map Ta Phut terminal with automated customer reporting.",
+        "I developed a full-scale industrial application for SCGC to monitor and report nitrogen usage at the Map Ta Phut terminal. With automated customer reporting, this app collects real-time data and delivers valuable insights directly to clients, ensuring efficiency and accuracy in every report.",
       image: SCGCInternImagePath,
       additionalImages: [SCGCInterninterviewImagePath, SCGCInternAppImagePath],
       details: [
-        "Integrated with SCADA systems for real-time data",
-        "Developed automated PDF report generation",
-        "Created role-based access control",
-        "Implemented data visualization dashboards",
+        "Data Collection: Gather real-time data on nitrogen usage.",
+        "Data Monitoring: Continuously track and analyze data for accurate insights.",
+        "PDF Reading: Extract and process information from PDFs.",
+        "Billing Reports: Generate and print detailed billing reports for users.",
       ],
-      technologies: "React, Python, PostgreSQL, Chart.js",
+      technologies: "Power app, Power Automate, Sharepoint, AI Hub, Power BI",
       duration: "4 months",
       links: {
         canva:
@@ -103,13 +102,13 @@ export const ProjectsSection = () => {
       },
     },
     {
-      title: "E-commerce Analytics Dashboard",
+      title: "Meat Avatar design web",
       description:
-        "Business intelligence tool for e-commerce stores to track sales, customer behavior, and inventory in real-time.",
+        "The Meat Avatar redesign project, a collaboration between Mitphol and KMUTT, aims to create a popular and engaging avatar that stands out. This design will seamlessly integrate campaign information, making it both visually appealing and functional. The goal is to create an avatar that resonates with customers, boosts engagement, and enhances promotional campaigns.",
       image: MeatAvatar1ImagePath,
       additionalImages: [MeatAvatar2ImagePath, MeatAvatar3ImagePath],
-      technologies: "Vue.js, Firebase, D3.js",
-      duration: "3 months",
+      technologies: "Figma",
+      duration: "1 months",
       links: {
         canva:
           "https://www.canva.com/design/DAGip1wJGS4/m44sVnt_soKQtTPnG45RAQ/edit?utm_content=DAGip1wJGS4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
@@ -120,9 +119,14 @@ export const ProjectsSection = () => {
     {
       title: "Pokedek",
       description:
-        "Pokémon collection and trading platform with admin management system.",
+        "The Pokémon Collection website I developed in my 2nd year is a Pokedex that allows users to collect their Pokémon cards. It also features an admin panel for managing and editing data, as well as user authentication to ensure secure access.",
       image: PokedekImagePath,
       additionalImages: [PokedekadminImagePath, PokedekLoginImagePath],
+      details: [
+        "Authentication: Secure user login and registration to protect personal data.",
+        "User-Specific Pokedex: Each user can create and manage their own collection of Pokémon cards.",
+        "Admin Panel: Enables administrators to monitor, edit, and add data efficiently.",
+      ],
       technologies: "React, Node.js, MongoDB",
       duration: "3 months",
       links: [
@@ -146,16 +150,16 @@ export const ProjectsSection = () => {
   ];
 
   return (
-    <div className="py-32  md:py-48 lg:py-60 bg-gradient-to-b from-slate-950 to-gray-850 relative z-0 overflow-x-clip">
+    <div id="projects" className="py-32  md:py-48 lg:py-60 bg-gradient-to-b from-slate-950 to-gray-850 relative z-0 overflow-x-clip">
       <div
         className="absolute inset-0 -z-30 opacity-10"
         style={{ backgroundImage: `url(${BGproject.src})` }}
       ></div>
-      <div className="container z-10 max-w-5xl">
+      <div className="container z-10 max-w-5xl ">
         <h1 className=" text-4xl font-bold mb-4 md:text-5xl text-center mt-10 tracking-wide">
           My Projects
         </h1>
-        <div className="join join-vertical w-full mt-10">
+        <div className="join join-vertical w-full mt-10 ">
           {projects.map((project, index) => (
             <ProjectCard
               key={index}

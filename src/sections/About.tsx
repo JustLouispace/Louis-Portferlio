@@ -8,8 +8,6 @@ import Workspace from "@/assets/images/Workspace.jpg";
 import EducationImage1 from "@/assets/images/education1.jpg";
 import EducationImage2 from "@/assets/images/education2.jpg";
 
-
-
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -80,24 +78,18 @@ export const AboutSection = () => {
   }, [activeTab]);
 
   const handleDownloadCV = () => {
-    // For development (localhost:3000)
-    // For production (yourdomain.com)
-    // Both will work with this same path
-    const pdfUrl = '/pdf/SiraphatNinprasertCV.pdf';
-    
-    const link = document.createElement('a');
-    link.href = pdfUrl;
-    link.download = 'SiraphatNinprasert_Resume.pdf'; // Custom download filename
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  // Alternative approach that tries to force download
+  const link = document.createElement('a');
+  link.href = 'https://drive.google.com/uc?export=download&id=1-P9fpMzNgg8wRIEoQdHW0n6_iNF1Xc8W';
+  link.target = '_blank';
+  link.click();
+};
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white px-6 relative z-0 overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center bg-black text-white px-6 relative z-0 overflow-hidden ">
       {/* Background Image */}
       <div
-        className="absolute inset-0 -z-30 opacity-10"
+        className="absolute inset-0 -z-30 opacity-10 "
         style={{
           backgroundImage: `url(${Workspace.src})`,
           backgroundSize: "cover",
@@ -106,9 +98,9 @@ export const AboutSection = () => {
         }}
       ></div>
 
-      {/* Content Container */}
-      <div className="max-w-5xl w-full flex flex-col md:flex-row items-center gap-10 relative z-10">
-        {/* Image Carousel Section */}
+      {/* Content Container - Changed items-center to items-start */}
+      <div className="max-w-5xl w-full flex flex-col md:flex-row items-start gap-10 relative z-10 pt-10 mt-10">
+        {/* Image Carousel Section - Fixed height container */}
         <div className="w-full md:w-1/2 overflow-hidden relative h-[500px]">
           <div
             className="flex transition-transform duration-[2500ms] ease-in-out"
@@ -128,16 +120,11 @@ export const AboutSection = () => {
           </div>
         </div>
 
-        {/* Text Section */}
-        <div className="w-full md:w-1/2">
+        {/* Text Section - Added fixed min-height */}
+        <div className="w-full md:w-1/2 min-h-[600px]">
           <h1 className="text-4xl font-bold mb-4">About Me</h1>
-          <p className="text-gray-300 text-lg leading-relaxed">
-            I am a full-stack web developer with a passion for creating
-            interactive and responsive web applications. I have experience
-            working with JavaScript, React, Redux, Node.js, Express, PostgreSQL,
-            Sequelize, HTML, CSS, and Git. I am a quick learner and love to
-            expand my knowledge. I thrive in team environments and enjoy
-            collaborating to build amazing applications.
+          <p className="text-gray-300 text-lg leading-relaxed mb-6">
+          I am Siraphat, or Louis, a student at KMUTT studying Applied Computer Science. I wll graduate this year. Passionate about building interactive and responsive web applications, I am a quick learner who thrives in team environments and loves collaborating to create great applications.
           </p>
 
           {/* Tabs Navigation */}
@@ -160,8 +147,8 @@ export const AboutSection = () => {
             ))}
           </div>
 
-          {/* Dynamic Content */}
-          <div className="mt-4 text-lg space-y-2 min-h-[100px]">
+          {/* Dynamic Content - Added fixed height container */}
+          <div className="mt-4 text-lg space-y-2 h-[300px] overflow-y-auto">
             {activeTab === "CV" ? (
               <motion.div
                 initial={{ opacity: 0 }}
@@ -169,9 +156,11 @@ export const AboutSection = () => {
                 transition={{ duration: 0.5 }}
                 className="space-y-6"
               >
-                <pre className="whitespace-pre-line">{displayText}</pre>
+                
+                <pre className="whitespace-pre-line flex justify-center">{displayText}</pre>
+                <div className="flex justify-center"> {/* Only this wrapper added */}
                 <motion.button
-                  className="btn btn-wide bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all duration-300"
+                  className="ml-5 btn btn-wide bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all duration-300"
                   whileHover={{ 
                     scale: 1.05,
                     boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.4)"
@@ -180,6 +169,7 @@ export const AboutSection = () => {
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   onClick={handleDownloadCV}
                 >
+                
                   <span className="flex items-center justify-center">
                     Download CV
                     <motion.span
@@ -197,68 +187,49 @@ export const AboutSection = () => {
                     </motion.span>
                   </span>
                 </motion.button>
+                </div>
               </motion.div>
             ) : activeTab === "Education" ? (
               <AnimatePresence mode="wait">
-                {isEducationTabActive && (
-                  <motion.div
-                    key="education-images"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.5 }}
-                    className="mt-6 space-y-4"
-                  >
-                    <pre className="whitespace-pre-line text-gray-200 bg-gray-900/50 p-4 rounded-lg">
-                      {displayText}
-                    </pre>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {educationImages.map((image, index) => (
-                        <motion.div
-                          key={index}
-                          whileHover={{ scale: 1.03 }}
-                          transition={{ type: "spring", stiffness: 400 }}
-                          className={`relative overflow-hidden rounded-${educationImageSettings.borderRadius} shadow-${educationImageSettings.shadow}`}
-                          style={{
-                            height: `${educationImageSettings.height}px`,
-                            maxHeight: educationImageSettings.maxHeight,
-                          }}
-                        >
-                          <Image
-                            src={image}
-                            alt={`Education ${index + 1}`}
-                            className={`object-cover w-full h-full`}
-                            style={{
-                              objectPosition: educationImageSettings.objectPosition,
-                            }}
-                            width={600}
-                            height={educationImageSettings.height}
-                            quality={90}
-                          />
-                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                            <p className="text-white text-sm font-medium">
-                              {index === 0 ? "Campus View" : "Graduation Day"}
-                            </p>
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
-
-                    {educationImages.length > 1 && (
-                      <div className="flex justify-center space-x-3 mt-4">
-                        {educationImages.map((_, index) => (
-                          <button
-                            key={index}
-                            onClick={() => setEducationImageIndex(index)}
-                            className={`w-3 h-3 rounded-full transition-all `}
-                            aria-label={`View image ${index + 1}`}
-                          />
-                        ))}
-                      </div>
-                    )}
-                  </motion.div>
-                )}
+                <motion.div
+                  key="education-content"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <pre className="whitespace-pre-line mb-4">{displayText}</pre>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {educationImages.map((image, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: index * 0.1 }}
+                        whileHover={{ scale: 1.03 }}
+                        className={`relative overflow-hidden rounded-lg shadow-xl`}
+                        style={{
+                          height: `${educationImageSettings.height}px`,
+                          maxHeight: educationImageSettings.maxHeight,
+                        }}
+                      >
+                        <Image
+                          src={image}
+                          alt={`Education ${index + 1}`}
+                          className="object-cover w-full h-full"
+                          width={600}
+                          height={educationImageSettings.height}
+                          quality={90}
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                          <p className="text-white text-sm font-medium">
+                            {index === 0 ? "Campus View" : "Graduation Day"}
+                          </p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
               </AnimatePresence>
             ) : (
               <pre className="whitespace-pre-line">{displayText}</pre>

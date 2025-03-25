@@ -13,8 +13,8 @@
     "framer-motion": "^11.18.2",
     "next": "^14.2.20",
     "portfolio-site-2": "file:",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-icons": "^5.5.0",
     "tailwind-merge": "^2.4.0"
   },
