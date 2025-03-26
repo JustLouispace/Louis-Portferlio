@@ -87,7 +87,7 @@ export const HeroSection = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
-  const texts = ['Hi my name is Louisssss', 'Welcome to my portfolio'];
+  const texts = ['Hi my name is Louis', 'Welcome to my portfolio'];
 
   useEffect(() => {
     const handleTyping = () => {
