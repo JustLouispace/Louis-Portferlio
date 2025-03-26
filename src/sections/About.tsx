@@ -102,7 +102,7 @@ export const AboutSection = () => {
       ></div>
 
       {/* Content Container - Changed items-center to items-start */}
-      <div className="max-w-5xl w-full flex flex-col md:flex-row items-start gap-10 relative z-10 pt-10 mt-10">
+      <div className="max-w-5xl w-full flex flex-col md:flex-row items-start gap-10 relative z-10 pt-10 mt-10 md:mt-5 pt-5 sm:mt-0 pt-0">
         {/* Image Carousel Section - Fixed height container */}
         <div className="w-full md:w-1/2 overflow-hidden relative h-[500px]">
           <div

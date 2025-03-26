@@ -1,3 +1,6 @@
+"use client"
+
+import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
 import Louis1images from "@/assets/images/Louis1-images.jpg";
@@ -7,22 +10,10 @@ import { HeroOrbit } from "@/components/HeroOrbit";
 import Link from "next/link";
 import { ScrollButtons } from "@/components/ScrollBtn";
 
-export const HeroSection = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  return (
-    <div className="py-32 md:py-48 lg:py-60 bg-gradient-to-b from-yellow-950 to-gray-950 relative z-0 overflow-x-clip">
-      {/* Grain background */}
-      <div
-        className="absolute inset-0 -z-30 opacity-5"
-        style={{ backgroundImage: `url(${grainImage.src})` }}
-      ></div>
-      
+// Memoize the star orbits to prevent re-renders
+const StarBackground = () => {
+  return useMemo(() => (
+    <>
       {/* Pulsing rings */}
       <div className="absolute inset-0 flex items-center justify-center">
         {[620, 820, 1020, 1220].map((size, i) => (
@@ -37,11 +28,6 @@ export const HeroSection = () => {
             }}
           ></div>
         ))}
-      </div>
-
-      {/* Central large star */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <StarIcon className="size-24 text-yellow-300 animate-pulse-slow" />
       </div>
 
       {/* Animated star orbits */}
@@ -91,6 +77,60 @@ export const HeroSection = () => {
           <StarIcon className={`size-${Math.floor(4 + Math.random() * 6)} text-yellow-300/${Math.floor(10 + Math.random() * 30)}`} />
         </HeroOrbit>
       ))}
+    </>
+  ), []);
+};
+
+export const HeroSection = () => {
+  const [text, setText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  const texts = ['Hi my name is Louis', 'Welcome to my portfolio'];
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const current = loopNum % texts.length;
+      const fullText = texts[current];
+      
+      setText(isDeleting 
+        ? fullText.substring(0, text.length - 1)
+        : fullText.substring(0, text.length + 1)
+      );
+
+      setTypingSpeed(isDeleting ? 30 : 150);
+
+      if (!isDeleting && text === fullText) {
+        setTimeout(() => setIsDeleting(true), 1000);
+      } else if (isDeleting && text === '') {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+        setTypingSpeed(500);
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, loopNum, typingSpeed, texts]);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <div className="py-32 md:py-48 lg:py-60 bg-gradient-to-b from-yellow-950 to-gray-950 relative z-0 overflow-x-clip">
+      {/* Grain background */}
+      <div
+        className="absolute inset-0 -z-30 opacity-5"
+        style={{ backgroundImage: `url(${grainImage.src})` }}
+      ></div>
+      
+      {/* Star background - now memoized */}
+      <StarBackground />
 
       {/* Content */}
       <div className="container z-10 relative">
@@ -110,15 +150,16 @@ export const HeroSection = () => {
           </div>
         </div>
         <div className="max-w-lg mx-auto">
-          <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide">
-            Hi my name is Louis
+          <h1 className="font-serif text-3xl md:text-5xl text-center mt-2 tracking-wide h-20 md:h-28 flex items-center justify-center">
+            <span>{text}</span>
+            <span className="ml-1.5 h-8 md:h-10 w-1 bg-yellow-300 animate-pulse-fast"></span>
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg">
             This is my portfolio website, showcasing my work. I developed it entirely myself. Thanks for visiting—hope we get to work together!
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
-        <ScrollButtons />
+          <ScrollButtons />
         </div>
       </div>
     </div>

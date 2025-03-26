@@ -150,8 +150,11 @@ export const ProjectsSection = () => {
   ];
   
   return (
-    <div id="projects" className="py-32 md:py-48 lg:py-60 bg-gradient-to-b from-slate-950 to-gray-850 relative z-0 overflow-x-clip">
-      {/* ... rest of your JSX */}
+    <div id="projects" className="py-32 md:py-48 lg:py-60 bg-gradient-to-b from-slate-950 to-gray-850 relative z-0 overflow-x-clip sm:py-5 ">
+      <div
+          className="absolute inset-0 -z-30 opacity-15 bg-cover bg-center"
+          style={{ backgroundImage: `url(${BGproject.src})` }}
+        ></div>
       <div className="container z-10 max-w-5xl ">
         <h1 className="text-4xl font-bold mb-4 md:text-5xl text-center mt-10 tracking-wide">
           My Projects
