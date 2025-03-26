@@ -123,7 +123,7 @@ export const HeroSection = () => {
 
   return (
     <div className="py-32 md:py-48 lg:py-60 bg-gradient-to-b from-yellow-950 to-gray-950 relative z-0 overflow-x-clip">
-      {/* Grain background */}
+      {/* Grain background zzz */}
       <div
         className="absolute inset-0 -z-30 opacity-5"
         style={{ backgroundImage: `url(${grainImage.src})` }}
@@ -156,7 +156,8 @@ export const HeroSection = () => {
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg">
             This is my portfolio website, showcasing my work. I developed it entirely myself. Thanks for visiting—hope we get to work together!
-          </p>
+          </p> 
+
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
           <ScrollButtons />
