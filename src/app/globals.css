@@ -3,19 +3,47 @@
 @tailwind utilities;
 @plugin "daisyui";
 
-
 @layer base {
   .nav-item {
     @apply px-4 py-1.5 rounded-full text-white/70 font-semibold hover:bg-white/10 hover:text-white transition duration-300;
   }
 
-  .hero-ring{
+  .hero-ring {
     @apply absolute inset-0 border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-amber-300/5 shadow-[0_0_80px_inset] shadow-amber-900/5;
-    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sans;
+  }
+
+  .font-serif {
+    @apply font-['var(--font-serif)'];
+  }
+
+  /* Smooth scrolling for the entire page */
+  html {
+    @apply scroll-smooth;
+  }
+
+  /* Focus styles for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-yellow-400;
+  }
+
+  /* Triangle clip path */
+  .clip-path-triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  }
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -24,7 +52,8 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
@@ -35,7 +64,8 @@
 }
 
 @keyframes pulse-slow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
@@ -46,7 +76,8 @@
 }
 
 @keyframes pulse-fast {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
@@ -72,8 +103,20 @@
   animation: pulse-fast 1s ease-in-out infinite;
 }
 
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
 
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
 
-html {
-  scroll-behavior: smooth;
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
