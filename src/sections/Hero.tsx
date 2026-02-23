@@ -85,13 +85,13 @@ const StarBackground = () => {
   )
 }
 
+const texts = ["Hi, my name is Louis", "I'm a Full Stack Developer", "Welcome to my portfolio"]
+
 export const HeroSection = () => {
   const [text, setText] = useState("")
   const [isDeleting, setIsDeleting] = useState(false)
   const [loopNum, setLoopNum] = useState(0)
   const [typingSpeed, setTypingSpeed] = useState(150)
-
-  const texts = ["Hi, my name is Louis", "I'm a Full Stack Developer", "Welcome to my portfolio"]
 
   useEffect(() => {
     const handleTyping = () => {

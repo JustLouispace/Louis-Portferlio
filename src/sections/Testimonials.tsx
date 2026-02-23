@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 
 import { useState, useEffect } from "react"
@@ -91,7 +92,7 @@ export const TestimonialsSection = () => {
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Client Testimonials</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto mb-6"></div>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Here `&apos;`s what people are saying about working with me. I pride myself on delivering exceptional results and
+            Here&apos;s what people are saying about working with me. I pride myself on delivering exceptional results and
             building lasting relationships.
           </p>
         </motion.div>

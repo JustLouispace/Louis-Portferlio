@@ -15,20 +15,21 @@ import { ParticlesBackground, NoiseOverlay } from "@/components/BackgroundElemen
 // Define the tab type
 type TabType = "Education" | "CV"
 
+const images = [Louis1, Louis2, Louis3]
+const educationImages = [EducationImage1, EducationImage2]
+
+const tabContent: Record<TabType, string> = {
+  Education:
+    "Bachelor's Degree in Applied Computer Science\nKing Mongkut's Institute of Technology Thonburi\n\nGraduation: 2024\nGPA: 3.5/4.0\n\nRelevant Coursework:\n• Web Development\n• Database Systems\n• Software Engineering\n• User Interface Design",
+  CV: "Download my CV using the button below to see my complete work history, education, and technical skills in detail.",
+}
+
 export const AboutSection = () => {
-  const images = [Louis1, Louis2, Louis3]
-  const educationImages = [EducationImage1, EducationImage2]
   const [currentIndex, setCurrentIndex] = useState(0)
   const [educationImageIndex, setEducationImageIndex] = useState(0)
   const [activeTab, setActiveTab] = useState<TabType>("Education")
   const [displayText, setDisplayText] = useState("")
   const [isEducationTabActive, setIsEducationTabActive] = useState(false)
-
-  const tabContent: Record<TabType, string> = {
-    Education:
-      "Bachelor's Degree in Applied Computer Science\nKing Mongkut's Institute of Technology Thonburi\n\nGraduation: 2024\nGPA: 3.5/4.0\n\nRelevant Coursework:\n• Web Development\n• Database Systems\n• Software Engineering\n• User Interface Design",
-    CV: "Download my CV using the button below to see my complete work history, education, and technical skills in detail.",
-  }
 
   const educationImageSettings = {
     height: 150,
@@ -49,7 +50,7 @@ export const AboutSection = () => {
     }, 7000)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [images.length])
 
   useEffect(() => {
     if (isEducationTabActive) {
@@ -58,7 +59,7 @@ export const AboutSection = () => {
       }, 5000)
       return () => clearInterval(interval)
     }
-  }, [isEducationTabActive])
+  }, [isEducationTabActive, educationImages.length])
 
   useEffect(() => {
     let i = 0
@@ -75,7 +76,7 @@ export const AboutSection = () => {
     }, 30) // Faster typing speed
 
     return () => clearInterval(typingInterval)
-  }, [activeTab])
+  }, [activeTab, tabContent])
 
   const handleDownloadCV = () => {
     // Alternative approach that tries to force download

@@ -142,7 +142,7 @@ export const SkillsSection = () => {
         </h2>
         <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto mb-6" />
         <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-          From pixel-perfect interfaces to rock-solid infrastructure — here's how I engineer
+          From pixel-perfect interfaces to rock-solid infrastructure — here&apos;s how I engineer
           systems that scale, perform, and endure.
         </p>
       </motion.div>
