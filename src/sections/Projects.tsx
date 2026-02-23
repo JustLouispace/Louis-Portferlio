@@ -29,6 +29,11 @@ import SCReport1 from "@/assets/images/Project/StoreCompliance/SC-Report1.png"
 import SCReport2 from "@/assets/images/Project/StoreCompliance/SC-Report2.png"
 import SCLegacy from "@/assets/images/Project/StoreCompliance/SC-Legacy.png"
 
+
+import DebitLogin from "@/assets/images/Project/DebitSystem/Debit-login.png"
+import DebitRBAC from "@/assets/images/Project/DebitSystem/DebitRBAC.png"
+import DebitLegacy from "@/assets/images/Project/DebitSystem/DebitLegacy.png"
+
 export const ProjectsSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const projectsRef = useRef<HTMLDivElement>(null)
@@ -113,6 +118,72 @@ export const ProjectsSection = () => {
         ],
       },
 
+    },
+
+   {
+      title: "Debit System & Centralized Control Hub — Security Overhaul",
+      description:
+        "Developed a comprehensive internal debit management system focusing on enterprise-grade security and scalable architecture. The project replaced flawed, scattered legacy authorization structures with a robust, centralized ecosystem that unifies permission management across multiple applications.",
+      image: DebitLogin.src, // เปลี่ยนเป็นตัวแปรรูปของคุณ
+      additionalImages: [ControlHub1.src, DebitRBAC.src], // เปลี่ยนเป็นตัวแปรรูปของคุณ
+
+      details: [
+        "Strict RBAC Architecture: Engineered Role-Based Access Control from the ground up, securing both UI rendering (component-level guards) and backend API endpoints (Secure by Default).",
+        "The 'Control Hub' Initiative: Architected a decoupled, centralized platform to unify permission management, user roles, and system maintenance modes across the entire enterprise ecosystem.",
+        "Type-Safe Foundation: Built a scalable frontend architecture using React, Vite, and TypeScript, enforcing strict code quality and maintainability standards for future developers.",
+        "Legacy Refactoring: Audited and resolved vulnerabilities in the previous access system, migrating hardcoded, fragmented permission logic into a single, reliable source of truth.",
+      ],
+      technologies: "React, Vite, TypeScript, Node.js, Express, RBAC",
+      duration: "Ongoing",
+      role: "Lead Full-Stack Developer. Refactored legacy backend flows, enforced code quality standards, and built the modern frontend architecture from scratch.",
+      outcome:
+        "Successfully delivered a highly secure application and established a new centralized architectural standard (The Control Hub) for all future internal web projects, significantly reducing the overhead of managing user permissions.",
+      links: {},
+      comparison: {
+        legacyImage: DebitLegacy.src,  // รูป legacy
+        modernImage: ControlHub1.src,   // รูป modern
+
+        legacyLabel: "Scattered Legacy Auth",
+        modernLabel: "Centralized RBAC",
+        items: [
+          {
+            aspect: "Authorization",
+            legacy: "Hardcoded, fragmented permissions scattered across different files and legacy apps.",
+            modern: "Strict Role-Based Access Control (RBAC) managed from a single centralized database.",
+            improvement: "Centralized",
+          },
+          {
+            aspect: "Platform Management",
+            legacy: "Each application required its own isolated user management and admin panel.",
+            modern: "The 'Control Hub' acts as a universal admin layer for unified app and permission management.",
+            improvement: "Unified Ecosystem",
+          },
+          {
+            aspect: "Security Level",
+            legacy: "Basic UI-hiding techniques. Vulnerable API endpoints lacking strict validation.",
+            modern: "Component-level UI guards paired with robust API middleware for deep verification.",
+            improvement: "Secure by Default",
+          },
+          {
+            aspect: "Code Quality",
+            legacy: "Untyped vanilla JavaScript/PHP prone to runtime errors and difficult to scale.",
+            modern: "Strictly typed architecture using TypeScript and modern React patterns.",
+            improvement: "Type-Safe",
+          },
+          {
+            aspect: "Maintenance Mode",
+            legacy: "Required manual server shutdowns or hardcoding 'under construction' pages.",
+            modern: "1-click toggleable maintenance modes for specific apps directly from the Control Hub.",
+            improvement: "Zero-Touch Config",
+          },
+          {
+            aspect: "Audit & Tracking",
+            legacy: "No clear visibility into who accessed or modified sensitive debit data.",
+            modern: "Action-tracking integrated with user roles to ensure accountability.",
+            improvement: "Traceable",
+          },
+        ],
+      },
     },
 
     {
