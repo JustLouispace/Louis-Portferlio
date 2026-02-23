@@ -376,7 +376,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       </AnimatePresence>
 
       <motion.div
-        className="border border-base-300 rounded-lg mb-6 overflow-hidden transition-all duration-400 bg-gray-900/40 backdrop-blur-sm hover:shadow-lg"
+        className="border border-base-300 rounded-lg mb-6 overflow-hidden transition-all duration-400 bg-gray-900/40 hover:shadow-lg"
         whileHover={{ y: -5 }}
         transition={{ duration: 0.3 }}
       >

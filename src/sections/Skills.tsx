@@ -163,7 +163,7 @@ export const SkillsSection = () => {
               y: -6,
               transition: { duration: 0.25, ease: "easeOut" },
             }}
-            className={`relative group rounded-2xl border ${category.border} bg-gradient-to-br ${category.accent} backdrop-blur-sm p-7 flex flex-col gap-5 overflow-hidden cursor-default`}
+            className={`relative group rounded-2xl border ${category.border} bg-gradient-to-br ${category.accent} p-7 flex flex-col gap-5 overflow-hidden cursor-default`}
           >
             {/* Hover shimmer overlay */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-white/[0.03] rounded-2xl pointer-events-none" />

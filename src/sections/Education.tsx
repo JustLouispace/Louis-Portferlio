@@ -410,7 +410,7 @@ export const Education = () => {
 
               {/* Main card */}
               <motion.div
-                className="bg-gray-800/60 backdrop-blur-sm p-8 rounded-xl border border-gray-700 shadow-xl h-full"
+                className="bg-gray-800/60 p-8 rounded-xl border border-gray-700 shadow-xl h-full"
                 whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2)" }}
               >
                 {/* Header with image */}

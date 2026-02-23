@@ -104,7 +104,7 @@ export const TestimonialsSection = () => {
           </div>
 
           {/* Testimonial carousel */}
-          <div className="relative z-10 bg-gray-800/30 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-gray-700/50 shadow-xl max-w-4xl mx-auto">
+          <div className="relative z-10 bg-gray-800/80 rounded-2xl p-8 md:p-12 border border-gray-700/50 shadow-xl max-w-4xl mx-auto">
             <div className="relative overflow-hidden min-h-[300px]">
               {testimonials.map((testimonial, index) => (
                 <motion.div
