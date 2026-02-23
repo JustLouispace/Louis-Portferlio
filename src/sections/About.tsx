@@ -13,21 +13,18 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ParticlesBackground, NoiseOverlay } from "@/components/BackgroundElements"
 
 // Define the tab type
-type TabType = "Skills" | "Education" | "CV"
+type TabType = "Education" | "CV"
 
 export const AboutSection = () => {
   const images = [Louis1, Louis2, Louis3]
   const educationImages = [EducationImage1, EducationImage2]
   const [currentIndex, setCurrentIndex] = useState(0)
   const [educationImageIndex, setEducationImageIndex] = useState(0)
-  const [activeTab, setActiveTab] = useState<TabType>("Skills") // Use TabType
+  const [activeTab, setActiveTab] = useState<TabType>("Education")
   const [displayText, setDisplayText] = useState("")
   const [isEducationTabActive, setIsEducationTabActive] = useState(false)
 
   const tabContent: Record<TabType, string> = {
-    // Record ensures that we map TabType keys to string values
-    Skills:
-      "• React & Next.js\n• Node.js & Express\n• Django & Python\n• MongoDB & PostgreSQL\n• Figma & UI/UX Design\n• Power Platform\n• Responsive Web Design\n• RESTful API Development\n• Git & Version Control\n• Agile Development",
     Education:
       "Bachelor's Degree in Applied Computer Science\nKing Mongkut's Institute of Technology Thonburi\n\nGraduation: 2024\nGPA: 3.5/4.0\n\nRelevant Coursework:\n• Web Development\n• Database Systems\n• Software Engineering\n• User Interface Design",
     CV: "Download my CV using the button below to see my complete work history, education, and technical skills in detail.",
@@ -191,7 +188,7 @@ export const AboutSection = () => {
 
           {/* Tabs Navigation */}
           <div className="mt-6 flex gap-6 text-gray-400 border-b border-gray-700 pb-2">
-            {["Skills", "Education", "CV"].map((tab) => (
+            {["Education", "CV"].map((tab) => (
               <motion.button
                 key={tab}
                 className={`pb-1 transition duration-300 ease-in-out ${

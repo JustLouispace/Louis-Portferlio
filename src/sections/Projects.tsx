@@ -7,21 +7,27 @@ import BGproject from "@/assets/images/BGproject.jpg"
 import { GridBackground, NoiseOverlay, FloatingShapes } from "@/components/BackgroundElements"
 
 // Import project images properly
-import LawyerProject1 from "@/assets/images/LawyerProject1.png"
-import LawyerDetails from "@/assets/images/LawyerDetails.png"
-import LawyerChatbot from "@/assets/images/LawyerChatbot.png"
+import LawyerProject1 from "@/assets/images/Project/LawyerNearU/LawyerProject1.png"
+import LawyerDetails from "@/assets/images/Project/LawyerNearU/LawyerDetails.png"
+import LawyerChatbot from "@/assets/images/Project/LawyerNearU/LawyerChatbot.png"
 
-import SCGCImage from "@/assets/images/SCGC.jpg"
-import SCGCIntern from "@/assets/images/SCGC-Intern.png"
-import SCGCInterview from "@/assets/images/SCGcinterview.png"
+import SCGCImage from "@/assets/images/Project/SCGC/SCGC.jpg"
+import SCGCIntern from "@/assets/images/Project/SCGC/SCGC-Intern.png"
+import SCGCInterview from "@/assets/images/Project/SCGC/SCGCinterview.png"
 
-import MeatAvatar from "@/assets/images/MeatAvatar.png"
-import MeatAvatar2 from "@/assets/images/MeatAvatar2.png"
-import MeatAvatar3 from "@/assets/images/MeatAvatar3.png"
+import MeatAvatar from "@/assets/images/Project/MeatAvatar/MeatAvatar.png"
+import MeatAvatar2 from "@/assets/images/Project/MeatAvatar/MeatAvatar2.png"
+import MeatAvatar3 from "@/assets/images/Project/MeatAvatar/MeatAvatar3.png"
 
-import Pokedek1 from "@/assets/images/Pokedek1.png"
-import PokedekAdmin from "@/assets/images/PokedekAdmin.png"
-import PokedekLogin from "@/assets/images/PokedekLogin.png"
+import Pokedek1 from "@/assets/images/Project/PokeDek/Pokedek1.png"
+import PokedekAdmin from "@/assets/images/Project/PokeDek/PokedekAdmin.png"
+import PokedekLogin from "@/assets/images/Project/PokeDek/PokedekLogin.png"
+
+import SCLogin from "@/assets/images/Project/StoreCompliance/SC-Login.png"
+import SCMain from "@/assets/images/Project/StoreCompliance/SC-Main.png"
+import SCReport1 from "@/assets/images/Project/StoreCompliance/SC-Report1.png"
+import SCReport2 from "@/assets/images/Project/StoreCompliance/SC-Report2.png"
+import SCLegacy from "@/assets/images/Project/StoreCompliance/SC-Legacy.png"
 
 export const ProjectsSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -42,6 +48,73 @@ export const ProjectsSection = () => {
   }
 
   const projects = [
+    {
+      title: "Store Compliance — Query Engine & Architecture Overhaul",
+      description:
+        "A complete architectural migration of an internal legacy reporting system (PHP/Apache) into a modern, event-driven web application. The goal was to eliminate severe server bottlenecks and transform slow, brittle reporting pipelines into a responsive, concurrent system built for scale.",
+      image: SCLogin.src,
+      additionalImages: [SCReport1.src, SCReport2.src],
+
+      details: [
+        "Asynchronous Refactoring: Rebuilt the core data-fetching engine in Node.js to support concurrent requests — resolving the blocking I/O issues that paralysed the previous PHP-based system under load.",
+        "Dynamic DB Routing: Engineered a hybrid database layer that seamlessly switches between Oracle (deep historical data) and MySQL (fast caching), keeping query latency minimal regardless of data age.",
+        "Zero-Downtime Deployment: Established a robust production pipeline with PM2 process management and Nginx reverse proxy, enabling hot reloads and instant rollback without any service interruption.",
+        "UI/UX Redesign: Redesigned the reporting interface from scratch in Next.js — replacing cluttered legacy screens with a clean, data-dense dashboard optimised for operational workflows.",
+      ],
+      technologies: "Next.js, Node.js, Oracle Database, MySQL, PM2, Nginx",
+      duration: "Ongoing",
+      role: "Sole Full-Stack Developer. Owned the entire migration lifecycle — from redesigning the UI/UX and refactoring the backend engine, to optimising database queries and configuring the production server infrastructure.",
+      outcome:
+        "Successfully reduced complex report generation times from minutes to mere seconds — cutting heavy multi-join query times by over half, and bringing standard filter responses down to sub-second. Significantly improved operational workflow for end-users while keeping server resource consumption well within acceptable limits.",
+      links: {},
+      comparison: {
+        legacyImage: SCLegacy.src,  // รูป legacy ที่เพิ่งใส่
+        modernImage: SCReport1.src,
+
+        legacyLabel: "PHP / Apache (Legacy)",
+        modernLabel: "Next.js / Node.js",
+        items: [
+          {
+            aspect: "Architecture",
+            legacy: "Monolithic PHP scripts — synchronous, blocking I/O. One slow query freezes every concurrent user.",
+            modern: "Event-driven Node.js with async/await — concurrent requests handled without blocking.",
+            improvement: "Non-blocking",
+          },
+          {
+            aspect: "Database",
+            legacy: "Single MySQL connection. All queries (historical + real-time) hit the same DB pool, causing contention.",
+            modern: "Hybrid router: Oracle for deep historical data, MySQL for fast caching. Queries routed automatically.",
+            improvement: "Dual-DB",
+          },
+          {
+            aspect: "Query Speed",
+            legacy: "Complex reports took minutes to generate under moderate load. Timeouts were common.",
+            modern: "Heavy queries cut by over half. Standard filters run in sub-second response times.",
+            improvement: ">50% faster",
+          },
+          {
+            aspect: "Deployment",
+            legacy: "Apache restarts required for every config change, causing service interruptions.",
+            modern: "PM2 + Nginx reverse proxy — hot reloads and zero-downtime rolling restarts.",
+            improvement: "0 downtime",
+          },
+          {
+            aspect: "UI / UX",
+            legacy: "Cluttered table-heavy PHP views. No real-time feedback. Required page refresh for every filter.",
+            modern: "Next.js SPA with livefilter, skeleton loaders, and a clean data-dense dashboard layout.",
+            improvement: "Redesigned",
+          },
+          {
+            aspect: "Error Handling",
+            legacy: "Unhandled exceptions crash the process and drop active user sessions silently.",
+            modern: "Structured try/catch, centralised error middleware, and PM2 auto-restart on failure.",
+            improvement: "Resilient",
+          },
+        ],
+      },
+
+    },
+
     {
       title: "LawBuddy (Winning 2nd NSC 2024 🏆)",
       description:
@@ -167,7 +240,8 @@ export const ProjectsSection = () => {
       <FloatingShapes count={10} colors={["#FFD700", "#FF8C00", "#4682B4"]} />
       <NoiseOverlay opacity={0.03} />
 
-      <div className="container z-10 max-w-5xl">
+      <div className="container z-10 max-w-6xl">
+
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}

@@ -13,7 +13,7 @@ export const Header = () => {
       setScrolled(window.scrollY > 50)
 
       // Determine active section based on scroll position
-      const sections = ["home", "about", "education", "projects", "testimonials", "contact"]
+      const sections = ["home", "about", "skills", "education", "projects", "testimonials", "contact"]
       const sectionElements = sections.map((id) => (id === "home" ? document.body : document.getElementById(id)))
 
       const currentPosition = window.scrollY + 300
@@ -54,6 +54,12 @@ export const Header = () => {
           className={`nav-item ${activeSection === "about" ? "bg-white text-gray-900 hover:bg-white hover:text-gray-900" : ""}`}
         >
           About
+        </a>
+        <a
+          href="#skills"
+          className={`nav-item ${activeSection === "skills" ? "bg-white text-gray-900 hover:bg-white hover:text-gray-900" : ""}`}
+        >
+          Skills
         </a>
         <a
           href="#education"
