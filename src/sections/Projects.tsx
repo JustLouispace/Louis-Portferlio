@@ -13,7 +13,7 @@ import LawyerChatbot from "@/assets/images/Project/LawyerNearU/LawyerChatbot.png
 
 import SCGCImage from "@/assets/images/Project/SCGC/SCGC.jpg"
 import SCGCIntern from "@/assets/images/Project/SCGC/SCGC-Intern.png"
-import SCGCInterview from "@/assets/images/Project/SCGC/SCGCinterview.png"
+import SCGCInterview from "@/assets/images/Project/SCGC/SCGcinterview.png"
 
 import MeatAvatar from "@/assets/images/Project/MeatAvatar/MeatAvatar.png"
 import MeatAvatar2 from "@/assets/images/Project/MeatAvatar/MeatAvatar2.png"
