@@ -388,7 +388,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 w-full">
             <div className="flex justify-between items-start w-full md:w-auto">
               <motion.div
-                className="relative overflow-hidden rounded-lg shadow-md flex-shrink-0"
+                className="relative overflow-hidden rounded-lg shadow-md flex-shrink-0 w-full h-40 md:w-32 md:h-32"
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.3 }}
               >
