@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 "use client"
+import Image from "next/image"
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
@@ -119,15 +119,17 @@ export const TestimonialsSection = () => {
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
                   <motion.div
-                    className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-yellow-400/80 mb-6"
+                    className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-yellow-400/80 mb-6"
                     initial={{ scale: 0.8 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
                   >
-                    <img
+                    <Image
                       src={testimonial.avatar.src || "/placeholder.svg"}
                       alt={testimonial.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 96px, 96px"
+                      className="object-cover"
                     />
                   </motion.div>
 

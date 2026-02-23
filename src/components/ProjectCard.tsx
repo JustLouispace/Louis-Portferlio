@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 "use client"
+import Image from "next/image"
 
 import type React from "react"
 import { useState, useEffect, useCallback } from "react"
@@ -149,7 +149,7 @@ const Lightbox = ({
                 i === current ? "border-yellow-400 opacity-100" : "border-white/20 opacity-40 hover:opacity-70"
               }`}
             >
-              <img src={img} className="w-full h-full object-cover" alt="" />
+              <Image src={img} fill sizes="(max-width: 768px) 48px, 48px" className="object-cover" alt="" />
             </button>
           ))}
         </div>
@@ -210,10 +210,12 @@ const GalleryGrid = ({
           whileHover={{ scale: 1.02 }}
           onClick={() => onOpen(index)}
         >
-          <img
+          <Image
             src={img}
             alt={`${title} — view ${index + 1}`}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
             <span className="text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 px-3 py-1 rounded-full">
@@ -258,7 +260,7 @@ const ComparisonSection = ({ comparison }: { comparison: Comparison }) => {
             </div>
             <div className="flex-1 relative">
               {comparison.legacyImage ? (
-                <img src={comparison.legacyImage} alt={legacyLabel} className="absolute inset-0 w-full h-full object-cover object-top" />
+                <Image src={comparison.legacyImage} alt={legacyLabel} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-top" />
               ) : (
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4 text-center">
                   <span className="text-3xl opacity-30">🗃️</span>
@@ -276,7 +278,7 @@ const ComparisonSection = ({ comparison }: { comparison: Comparison }) => {
             </div>
             <div className="flex-1 relative">
               {comparison.modernImage ? (
-                <img src={comparison.modernImage} alt={modernLabel} className="absolute inset-0 w-full h-full object-cover object-top" />
+                <Image src={comparison.modernImage} alt={modernLabel} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-top" />
               ) : (
                 <div className="absolute inset-0 flex items-center justify-center p-4 text-center">
                   <span className="text-gray-600 text-xs">Modern screenshot not available</span>
@@ -390,7 +392,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.3 }}
               >
-                <img src={image || "/placeholder.svg"} alt={title} className="w-full h-40 md:w-32 md:h-32 object-cover rounded-lg" />
+                <Image src={image || "/placeholder.svg"} alt={title} fill sizes="(max-width: 768px) 100vw, 128px" className="object-cover rounded-lg" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end justify-center p-2">
                   <span className="text-xs text-white font-medium">View Details</span>
                 </div>
