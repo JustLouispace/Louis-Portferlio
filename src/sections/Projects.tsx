@@ -34,6 +34,10 @@ import DebitLogin from "@/assets/images/Project/Debit/Debit-login.png"
 import DebitDashboard from "@/assets/images/Project/Debit/Debit-Dashboard.png"
 import DebitReport from "@/assets/images/Project/Debit/DebitReport.png"
 
+import LSCMain from "@/assets/images/Project/LSC/LSCMain.png"
+import LSCDashboard from "@/assets/images/Project/LSC/LSCDashboard.png"
+import LSCTimeline from "@/assets/images/Project/LSC/LSCTimeline.png"
+
 export const ProjectsSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const projectsRef = useRef<HTMLDivElement>(null)
@@ -165,6 +169,29 @@ export const ProjectsSection = () => {
           "https://www.canva.com/design/DAGRjlv_0j0/XDnYW5v2sIjd5HLKqdz7Rw/edit?utm_content=DAGRjlv_0j0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
       },
     },
+
+    {
+      title: "LSC Status Tracking — Logistics & Workflow Management",
+      description:
+        "Architected a comprehensive status tracking system designed to monitor and manage complex logistical workflows. The platform provides real-time visibility into operational states, replacing manual tracking processes with a centralized, automated, and highly responsive dashboard.",
+      image: LSCMain.src, // เปลี่ยนเป็นตัวแปรรูปหน้าหลักของระบบคุณ
+      additionalImages: [LSCDashboard.src, LSCTimeline.src], // เปลี่ยนเป็นรูปรอง เช่น หน้า Dashboard หรือ Timeline สถานะ
+      details: [
+        "End-to-End Workflow Management: Engineered a dynamic state-machine architecture to track items through complex lifecycles (e.g., Pending, In-Progress, Completed) with strict validation rules.",
+        "Real-Time Visibility & Dashboards: Developed data-dense interfaces and interactive timeline views, allowing operational teams to instantly identify bottlenecks and track multi-step processes.",
+        "High-Performance Data Handling: Optimized backend queries and database indexing strategies to efficiently process and retrieve large volumes of historical tracking logs without UI degradation.",
+        "Seamless System Integration: Designed scalable APIs to synchronize status updates with other core enterprise services, ensuring a single source of truth across the organization.",
+        "Type-Safe Implementation: Built utilizing TypeScript across the entire stack to maintain high code reliability and prevent runtime errors during complex state transitions."
+      ],
+      technologies: "React, TypeScript, Node.js, Express, TailwindCSS, SQL",
+      duration: "Ongoing",
+      role: "Lead Full-Stack Developer. Designed the database schema for state tracking, built the robust backend API, and developed the interactive frontend dashboard from the ground up.",
+      outcome:
+        "Dramatically increased operational transparency, completely replacing manual spreadsheet tracking with a centralized system. Significantly reduced response times for internal logistics inquiries and improved overall workflow efficiency.",
+      links: {}
+    },
+
+
     {
       title: "Meat Avatar Design Web",
       description:
@@ -232,7 +259,7 @@ export const ProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="py-32 md:py-48 lg:py-60 bg-gradient-to-b from-slate-950 to-gray-850 relative z-0 overflow-x-clip"
+      className="py-32 md:py-48 lg:py-60 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-slate-950 dark:to-gray-850 relative z-0 overflow-x-clip transition-colors duration-300"
     >
       {/* Enhanced background elements */}
       <div
@@ -252,9 +279,9 @@ export const ProjectsSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">My Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-gray-900 dark:text-white">Featured Projects</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto mb-6"></div>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Here are some of the projects I&apos;ve worked on. Each demonstrates different skills and technologies I&apos;ve
             mastered throughout my journey as a developer.
           </p>

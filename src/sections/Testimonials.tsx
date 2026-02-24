@@ -76,10 +76,10 @@ export const TestimonialsSection = () => {
   return (
     <section
       id="testimonials"
-      className="py-32 md:py-48 bg-gradient-to-b from-gray-850 to-gray-900 relative z-0 overflow-hidden"
+      className="py-32 md:py-48 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-850 dark:to-gray-900 relative z-0 overflow-hidden transition-colors duration-300"
     >
       {/* Background texture */}
-      <div className="absolute inset-0 -z-30 opacity-5" style={{ backgroundImage: `url(${grainImage.src})` }}></div>
+      <div className="absolute inset-0 -z-30 opacity-5 dark:opacity-5 mix-blend-multiply dark:mix-blend-normal" style={{ backgroundImage: `url(${grainImage.src})` }}></div>
 
       <div className="container max-w-6xl mx-auto px-6">
         <motion.div
@@ -89,9 +89,9 @@ export const TestimonialsSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Client Testimonials</h2>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-gray-900 dark:text-white">Client Testimonials</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto mb-6"></div>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Here&apos;s what people are saying about working with me. I pride myself on delivering exceptional results and
             building lasting relationships.
           </p>
@@ -99,12 +99,12 @@ export const TestimonialsSection = () => {
 
         <div className="relative">
           {/* Large quote icon */}
-          <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 text-gray-700/20 z-0">
+          <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 text-gray-300/50 dark:text-gray-700/20 z-0">
             <FaQuoteRight size={120} />
           </div>
 
           {/* Testimonial carousel */}
-          <div className="relative z-10 bg-gray-800/80 rounded-2xl p-8 md:p-12 border border-gray-700/50 shadow-xl max-w-4xl mx-auto">
+          <div className="relative z-10 bg-white/80 dark:bg-gray-800/80 rounded-2xl p-8 md:p-12 border border-gray-200 dark:border-gray-700/50 shadow-xl max-w-4xl mx-auto">
             <div className="relative overflow-hidden min-h-[300px]">
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -134,7 +134,7 @@ export const TestimonialsSection = () => {
                   </motion.div>
 
                   <motion.blockquote
-                    className="text-lg md:text-xl text-gray-200 italic mb-6 max-w-2xl"
+                    className="text-lg md:text-xl text-gray-700 dark:text-gray-200 italic mb-6 max-w-2xl"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.5 }}
@@ -147,8 +147,8 @@ export const TestimonialsSection = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
                   >
-                    <h4 className="text-xl font-bold text-white">{testimonial.name}</h4>
-                    <p className="text-yellow-400">{testimonial.position}</p>
+                    <h4 className="text-xl font-bold text-gray-900 dark:text-white">{testimonial.name}</h4>
+                    <p className="text-yellow-600 dark:text-yellow-400">{testimonial.position}</p>
                   </motion.div>
                 </motion.div>
               ))}
@@ -158,7 +158,7 @@ export const TestimonialsSection = () => {
             <div className="flex justify-between items-center mt-8">
               <button
                 onClick={prevTestimonial}
-                className="p-2 rounded-full bg-gray-700/50 hover:bg-yellow-500/80 transition-colors"
+                className="p-2 rounded-full text-gray-700 hover:text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700/50 hover:bg-yellow-400 dark:hover:bg-yellow-500/80 transition-colors"
                 aria-label="Previous testimonial"
               >
                 <FaChevronLeft size={24} />
@@ -170,7 +170,7 @@ export const TestimonialsSection = () => {
                     key={index}
                     onClick={() => goToTestimonial(index)}
                     className={`w-3 h-3 rounded-full transition-all ${
-                      activeIndex === index ? "bg-yellow-400 w-6" : "bg-gray-600 hover:bg-gray-500"
+                      activeIndex === index ? "bg-yellow-500 dark:bg-yellow-400 w-6" : "bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500"
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
@@ -179,7 +179,7 @@ export const TestimonialsSection = () => {
 
               <button
                 onClick={nextTestimonial}
-                className="p-2 rounded-full bg-gray-700/50 hover:bg-yellow-500/80 transition-colors"
+                className="p-2 rounded-full text-gray-700 hover:text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700/50 hover:bg-yellow-400 dark:hover:bg-yellow-500/80 transition-colors"
                 aria-label="Next testimonial"
               >
                 <FaChevronRight size={24} />

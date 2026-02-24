@@ -19,7 +19,7 @@ const StarBackground = () => {
           {[620, 820, 1020, 1220].map((size, i) => (
             <div
               key={i}
-              className={`absolute rounded-full border border-white/10 animate-pulse`}
+              className={`absolute rounded-full border border-gray-900/10 dark:border-white/10 animate-pulse`}
               style={{
                 width: `${size}px`,
                 height: `${size}px`,
@@ -75,7 +75,7 @@ const StarBackground = () => {
             twinkle
           >
             <StarIcon
-              className={`size-${Math.floor(4 + Math.random() * 6)} text-yellow-300/${Math.floor(10 + Math.random() * 30)}`}
+              className={`size-${Math.floor(4 + Math.random() * 6)} text-yellow-500/${Math.floor(10 + Math.random() * 30)} dark:text-yellow-300/${Math.floor(10 + Math.random() * 30)}`}
             />
           </HeroOrbit>
         ))}
@@ -118,10 +118,10 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="py-32 md:py-48 lg:py-60 bg-gradient-to-b from-yellow-950 to-gray-950 relative z-0 overflow-x-clip"
+      className="py-32 md:py-48 lg:py-60 bg-gradient-to-b from-yellow-50/50 to-white dark:from-yellow-950 dark:to-gray-950 relative z-0 overflow-x-clip transition-colors duration-300"
     >
       {/* Grain background */}
-      <div className="absolute inset-0 -z-30 opacity-5" style={{ backgroundImage: `url(${grainImage.src})` }}></div>
+      <div className="absolute inset-0 -z-30 opacity-5 dark:opacity-5 mix-blend-multiply dark:mix-blend-normal" style={{ backgroundImage: `url(${grainImage.src})` }}></div>
 
       {/* Star background - now memoized */}
       <StarBackground />
@@ -140,17 +140,17 @@ export const HeroSection = () => {
               alt="Person peeking from behind laptop"
               layout="fill"
               objectFit="cover"
-              className="rounded-full size-10 border-4 border-white/90 shadow-[0_0_30px_rgba(72,187,255,0.6)] animate-float"
+              className="rounded-full size-10 border-4 border-white dark:border-white/90 shadow-[0_0_30px_rgba(72,187,255,0.3)] dark:shadow-[0_0_30px_rgba(72,187,255,0.6)] animate-float"
             />
           </motion.div>
           <motion.div
-            className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-3 rounded-lg mt-3"
+            className="bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 px-4 py-1.5 inline-flex items-center gap-3 rounded-lg mt-3 shadow-sm dark:shadow-none"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <div className="bg-green-500 size-2.5 rounded-full animate-pulse-fast"></div>
-            <div className="text-sm font-medium">Available for New Projects</div>
+            <div className="text-sm font-medium text-gray-900 dark:text-white">Available for New Projects</div>
           </motion.div>
         </div>
         <motion.div
@@ -159,11 +159,11 @@ export const HeroSection = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl text-center mt-6 tracking-wide h-20 md:h-28 flex items-center justify-center">
+          <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl text-gray-900 dark:text-white text-center mt-6 tracking-wide h-20 md:h-28 flex items-center justify-center">
             <span>{text}</span>
             <span className="ml-1.5 h-8 md:h-10 w-1 bg-yellow-300 animate-pulse-fast"></span>
           </h1>
-          <p className="mt-6 text-center text-white/80 md:text-lg lg:text-xl max-w-xl mx-auto leading-relaxed">
+          <p className="mt-6 text-center text-gray-700 dark:text-white/80 md:text-lg lg:text-xl max-w-xl mx-auto leading-relaxed">
             I&apos;m a passionate full-stack developer specializing in creating responsive, user-friendly web applications.
             With expertise in React, Node.js, and modern frameworks, I bring ideas to life through clean, efficient
             code.

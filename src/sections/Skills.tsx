@@ -13,7 +13,7 @@ const skillCategories = [
     tech: ["Next.js", "React", "Tailwind CSS", "Vite"],
     accent: "from-sky-400/20 to-blue-600/10",
     border: "border-sky-500/30",
-    tagColor: "bg-sky-500/15 text-sky-300 border border-sky-500/30",
+    tagColor: "bg-sky-100 dark:bg-sky-500/15 text-sky-800 dark:text-sky-300 border border-sky-300 dark:border-sky-500/30",
     iconBg: "bg-sky-500/10",
   },
   {
@@ -25,7 +25,7 @@ const skillCategories = [
     tech: ["Node.js", "Express", "TypeScript"],
     accent: "from-violet-400/20 to-purple-600/10",
     border: "border-violet-500/30",
-    tagColor: "bg-violet-500/15 text-violet-300 border border-violet-500/30",
+    tagColor: "bg-violet-100 dark:bg-violet-500/15 text-violet-800 dark:text-violet-300 border border-violet-300 dark:border-violet-500/30",
     iconBg: "bg-violet-500/10",
   },
   {
@@ -37,7 +37,7 @@ const skillCategories = [
     tech: ["MySQL", "Oracle Database"],
     accent: "from-amber-400/20 to-yellow-600/10",
     border: "border-amber-500/30",
-    tagColor: "bg-amber-500/15 text-amber-300 border border-amber-500/30",
+    tagColor: "bg-amber-100 dark:bg-amber-500/15 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-500/30",
     iconBg: "bg-amber-500/10",
   },
   {
@@ -49,7 +49,7 @@ const skillCategories = [
     tech: ["Nginx", "PM2", "Docker", "Linux (Ubuntu)"],
     accent: "from-emerald-400/20 to-green-600/10",
     border: "border-emerald-500/30",
-    tagColor: "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30",
+    tagColor: "bg-emerald-100 dark:bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-500/30",
     iconBg: "bg-emerald-500/10",
   },
 ]
@@ -60,7 +60,7 @@ const toolsArsenal = [
     icon: "{ }",
     color: "text-rose-400",
     divider: "border-rose-500/25",
-    pillColor: "bg-rose-500/10 text-rose-300 border border-rose-500/20 hover:bg-rose-500/20",
+    pillColor: "bg-rose-100 dark:bg-rose-500/10 text-rose-800 dark:text-rose-300 border border-rose-300 dark:border-rose-500/20 hover:bg-rose-200 dark:hover:bg-rose-500/20",
     items: ["TypeScript", "JavaScript (ES6+)", "SQL", "HTML5", "CSS3", "PHP", "Python"],
   },
   {
@@ -68,7 +68,7 @@ const toolsArsenal = [
     icon: "◈",
     color: "text-sky-400",
     divider: "border-sky-500/25",
-    pillColor: "bg-sky-500/10 text-sky-300 border border-sky-500/20 hover:bg-sky-500/20",
+    pillColor: "bg-sky-100 dark:bg-sky-500/10 text-sky-800 dark:text-sky-300 border border-sky-300 dark:border-sky-500/20 hover:bg-sky-200 dark:hover:bg-sky-500/20",
     items: ["Next.js", "React", "Tailwind CSS", "Vite", "Zustand / Redux", "Responsive Design"],
   },
   {
@@ -76,7 +76,7 @@ const toolsArsenal = [
     icon: "⬡",
     color: "text-violet-400",
     divider: "border-violet-500/25",
-    pillColor: "bg-violet-500/10 text-violet-300 border border-violet-500/20 hover:bg-violet-500/20",
+    pillColor: "bg-violet-100 dark:bg-violet-500/10 text-violet-800 dark:text-violet-300 border border-violet-300 dark:border-violet-500/20 hover:bg-violet-200 dark:hover:bg-violet-500/20",
     items: ["Node.js", "Express.js", "RESTful API Design", "JWT / Authentication", "RBAC", "PHP", "Laravel", "NestJS"],
   },
   {
@@ -84,7 +84,7 @@ const toolsArsenal = [
     icon: "◉",
     color: "text-amber-400",
     divider: "border-amber-500/25",
-    pillColor: "bg-amber-500/10 text-amber-300 border border-amber-500/20 hover:bg-amber-500/20",
+    pillColor: "bg-amber-100 dark:bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-500/20 hover:bg-amber-200 dark:hover:bg-amber-500/20",
     items: ["MySQL", "Oracle Database", "Query Optimization", "Database Design", "SQL/NoSQL", "MongoDB", "PostgreSQL", "NoSQL"],
   },
   {
@@ -92,7 +92,7 @@ const toolsArsenal = [
     icon: "⬢",
     color: "text-emerald-400",
     divider: "border-emerald-500/25",
-    pillColor: "bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 hover:bg-emerald-500/20",
+    pillColor: "bg-emerald-100 dark:bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-500/20 hover:bg-emerald-200 dark:hover:bg-emerald-500/20",
     items: ["Docker", "Nginx", "PM2", "Linux (Ubuntu)", "Git / GitHub", "Postman", "Figma", "CI/CD"],
   },
 ]
@@ -119,7 +119,7 @@ export const SkillsSection = () => {
   return (
     <section
       id="skills"
-      className="min-h-screen flex flex-col items-center bg-[#0a0a14] text-white px-6 py-24 relative overflow-hidden"
+      className="min-h-screen flex flex-col items-center bg-gray-50 dark:bg-[#0a0a14] text-gray-900 dark:text-white px-6 py-24 relative overflow-hidden transition-colors duration-300"
     >
       {/* Background particles */}
       <ParticlesBackground color="rgba(139, 92, 246, 0.25)" count={25} speed={0.25} />
@@ -137,11 +137,11 @@ export const SkillsSection = () => {
         transition={{ duration: 0.65 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
+        <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-gray-900 dark:text-white">
           Skills &amp; Expertise
         </h2>
         <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto mb-6" />
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
           From pixel-perfect interfaces to rock-solid infrastructure — here&apos;s how I engineer
           systems that scale, perform, and endure.
         </p>
@@ -163,10 +163,10 @@ export const SkillsSection = () => {
               y: -6,
               transition: { duration: 0.25, ease: "easeOut" },
             }}
-            className={`relative group rounded-2xl border ${category.border} bg-gradient-to-br ${category.accent} p-7 flex flex-col gap-5 overflow-hidden cursor-default`}
+            className={`relative group rounded-2xl border ${category.border} bg-white dark:bg-black/0 bg-gradient-to-br ${category.accent} p-7 flex flex-col gap-5 overflow-hidden cursor-default shadow-sm dark:shadow-none`}
           >
             {/* Hover shimmer overlay */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-white/[0.03] rounded-2xl pointer-events-none" />
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/[0.03] dark:bg-white/[0.03] rounded-2xl pointer-events-none" />
 
             {/* Top row: icon + headline */}
             <div className="flex items-start gap-4">
@@ -174,14 +174,14 @@ export const SkillsSection = () => {
                 {category.icon}
               </div>
               <div>
-                <h3 className="text-lg font-bold text-white leading-tight tracking-tight">
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight tracking-tight">
                   {category.headline}
                 </h3>
               </div>
             </div>
 
             {/* Description */}
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
               {category.description}
             </p>
 
@@ -210,7 +210,7 @@ export const SkillsSection = () => {
       >
         {/* Sub-heading */}
         <div className="text-center mb-10">
-          <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-3">
+          <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 dark:text-white mb-3">
             Tech Stack &amp; Tools Arsenal
           </h3>
           <p className="text-gray-500 text-sm tracking-wide">
@@ -219,7 +219,7 @@ export const SkillsSection = () => {
         </div>
 
         {/* Divider line */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-10" />
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-white/10 to-transparent mb-10" />
 
         {/* 5-column grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -258,12 +258,12 @@ export const SkillsSection = () => {
         </div>
 
         {/* Bottom divider */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mt-10" />
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-white/10 to-transparent mt-10" />
       </motion.div>
 
       {/* Bottom label */}
       <motion.p
-        className="mt-10 text-xs text-gray-600 tracking-widest uppercase relative z-10"
+        className="mt-10 text-xs text-gray-500 dark:text-gray-600 tracking-widest uppercase relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.6 }}

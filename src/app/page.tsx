@@ -7,6 +7,7 @@ import { TestimonialsSection } from "@/sections/Testimonials"
 import { Footer } from "@/sections/Footer"
 import { Header } from "@/sections/Header"
 import { Education } from "@/sections/Education"
+import { Experience } from "@/sections/Experience"
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <AboutSection />
         <SkillsSection />
         <Education />
+        <Experience />
         <ProjectsSection />
         <ContactSection />
       </main>

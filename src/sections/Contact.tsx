@@ -54,10 +54,10 @@ export const ContactSection = () => {
   ]
 
   return (
-    <section id="contact" className="relative py-24 md:py-36 lg:py-48 bg-gradient-to-b from-gray-900 to-black">
+    <section id="contact" className="relative py-24 md:py-36 lg:py-48 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-black transition-colors duration-300">
       {/* Enhanced background elements */}
       <motion.div
-        className="absolute inset-0 -z-30 opacity-15 bg-cover bg-center"
+        className="absolute inset-0 -z-30 opacity-15 dark:opacity-15 bg-cover bg-center mix-blend-multiply dark:mix-blend-normal"
         style={{ backgroundImage: `url(${BGproject.src})` }}
         initial={{ scale: 1.1 }}
         whileInView={{ scale: 1 }}
@@ -82,9 +82,9 @@ export const ContactSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Get In Touch</h2>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-gray-900 dark:text-white">Get In Touch</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto mb-6"></div>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Have a project in mind or want to discuss potential opportunities? I&apos;d love to hear from you. Feel free to
             reach out through any of the channels below.
           </p>
@@ -143,7 +143,7 @@ export const ContactSection = () => {
           transition={{ delay: 0.5, duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <p className="text-xl text-gray-400 italic">Let&apos;s create something amazing together!</p>
+          <p className="text-xl text-gray-500 dark:text-gray-400 italic">Let&apos;s create something amazing together!</p>
         </motion.div>
       </div>
     </section>

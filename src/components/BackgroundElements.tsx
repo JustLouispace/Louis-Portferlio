@@ -204,7 +204,7 @@ export const StarField = ({ className = "", count = 100, twinkleSpeed = 3 }) => 
       {stars.map((star) => (
         <motion.div
           key={star.id}
-          className="absolute rounded-full bg-white"
+          className="absolute rounded-full bg-gray-900 dark:bg-white"
           style={{
             width: star.size,
             height: star.size,

@@ -295,7 +295,7 @@ export const Education = () => {
   ]
 
   return (
-    <section id="education" className="py-24 md:py-32 bg-black relative overflow-hidden">
+    <section id="education" className="py-24 md:py-32 bg-white dark:bg-black relative overflow-hidden transition-colors duration-300">
       {/* Dynamic canvas background */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full -z-20" />
 
@@ -376,7 +376,7 @@ export const Education = () => {
         >
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Education</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto mb-6"></div>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             My academic journey that has shaped my knowledge, skills, and passion for technology and innovation.
           </p>
         </motion.div>
@@ -410,7 +410,7 @@ export const Education = () => {
 
               {/* Main card */}
               <motion.div
-                className="bg-gray-800/60 p-8 rounded-xl border border-gray-700 shadow-xl h-full"
+                className="bg-white/80 dark:bg-gray-800/60 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-xl h-full"
                 whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2)" }}
               >
                 {/* Header with image */}
@@ -442,16 +442,16 @@ export const Education = () => {
                     {item.icon}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">{item.title}</h3>
                     <p className={index === 0 ? "text-yellow-400" : "text-blue-400"}>{item.institution}</p>
                   </div>
                 </div>
 
-                <p className="text-gray-300 mb-6">{item.description}</p>
+                <p className="text-gray-700 dark:text-gray-300 mb-6">{item.description}</p>
 
                 {/* Highlights */}
                 <div className="mb-6">
-                  <h4 className="font-semibold text-white mb-3">Key Subjects:</h4>
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Key Subjects:</h4>
                   <div className="grid grid-cols-2 gap-2">
                     {item.highlights.map((highlight, i) => (
                       <div
@@ -461,7 +461,7 @@ export const Education = () => {
                         } flex items-center`}
                       >
                         <span className={`mr-2 text-xs ${index === 0 ? "text-yellow-400" : "text-blue-400"}`}>•</span>
-                        <span className="text-gray-300 text-sm">{highlight}</span>
+                        <span className="text-gray-700 dark:text-gray-300 text-sm">{highlight}</span>
                       </div>
                     ))}
                   </div>
@@ -484,7 +484,7 @@ export const Education = () => {
           <p className="text-xl text-gray-400 italic">
             Education is not the learning of facts, but the training of the mind to think.
           </p>
-          <p className="text-gray-500 mt-2">- Albert Einstein</p>
+          <p className="text-gray-500 dark:text-gray-400 mt-2">- Albert Einstein</p>
         </motion.div>
       </div>
     </section>

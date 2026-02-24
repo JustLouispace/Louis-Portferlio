@@ -7,6 +7,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     screens: {
       sm: "375px",
@@ -21,7 +22,7 @@ const config: Config = {
       },
     },
     extend: {
-      fontFamily:{
+      fontFamily: {
         sans: 'var(--font-sans)',
         serif: 'var(--font-serif)',
       }
