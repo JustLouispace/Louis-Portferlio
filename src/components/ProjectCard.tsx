@@ -171,59 +171,68 @@ const GalleryGrid = ({
   onOpen: (index: number) => void
 }) => {
   const count = allImages.length
+  const displayCount = Math.min(count, 3)
+  const displayImages = allImages.slice(0, displayCount)
+  const remainingCount = count - displayCount
 
   const getGridClass = () => {
-    if (count === 1) return "grid-cols-1"
-    if (count === 2) return "grid-cols-2"
-    if (count === 3) return "grid-cols-2"   // 1 full-width + 2 equal below
-    if (count === 4) return "grid-cols-2"
-    return "grid-cols-3"
+    if (displayCount === 1) return "grid-cols-1"
+    if (displayCount === 2) return "grid-cols-2"
+    return "grid-cols-2" // displayCount === 3
   }
 
   const getItemClass = (index: number) => {
-    if (count >= 3 && index === 0) {
-      if (count === 3) return "col-span-2"   // full row in 2-col grid
-      if (count === 4) return "col-span-2"
-      return "col-span-2 row-span-2"        // 5+: top-left big
-    }
+    if (displayCount === 3 && index === 0) return "col-span-2"
     return ""
   }
 
   const getHeightClass = (index: number) => {
-    if (count === 1) return "h-72 md:h-80"
-    if (count === 2) return "h-60"
-    if (count === 3) return index === 0 ? "h-60" : "h-44"
-    if (count === 4) return index === 0 ? "h-56" : "h-40"
-    if (index === 0) return "h-full min-h-[14rem]"
+    if (displayCount === 1) return "h-72 md:h-80"
+    if (displayCount === 2) return "h-60"
+    if (displayCount === 3) return index === 0 ? "h-60" : "h-44"
     return "h-36"
   }
 
   return (
     <div className={`grid ${getGridClass()} gap-2 mb-8`}>
-      {allImages.map((img, index) => (
-        <motion.div
-          key={index}
-          className={`relative overflow-hidden rounded-lg cursor-pointer group ${getItemClass(index)} ${getHeightClass(index)}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 + index * 0.07 }}
-          whileHover={{ scale: 1.02 }}
-          onClick={() => onOpen(index)}
-        >
-          <Image
-            src={img}
-            alt={`${title} — view ${index + 1}`}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-            <span className="text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 px-3 py-1 rounded-full">
-              View fullscreen
-            </span>
-          </div>
-        </motion.div>
-      ))}
+      {displayImages.map((img, index) => {
+        const isLastDisplay = index === displayCount - 1
+        const hasMore = remainingCount > 0
+
+        return (
+          <motion.div
+            key={index}
+            className={`relative overflow-hidden rounded-lg cursor-pointer group ${getItemClass(index)} ${getHeightClass(index)}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 + index * 0.07 }}
+            whileHover={{ scale: 1.02 }}
+            onClick={() => onOpen(index)}
+          >
+            <Image
+              src={img}
+              alt={`${title} — view ${index + 1}`}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            {/* Standard hover overlay */}
+            <div
+              className={`absolute inset-0 transition-opacity duration-300 flex items-center justify-center
+                ${isLastDisplay && hasMore ? "bg-black/50 hover:bg-black/40" : "bg-black/0 hover:bg-black/20"}
+              `}
+            >
+              {isLastDisplay && hasMore && (
+                <div className="flex flex-col items-center justify-center">
+                  <span className="text-white text-3xl md:text-4xl font-light tracking-wider drop-shadow-md">
+                    +{remainingCount}
+                  </span>
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )
+      })}
     </div>
   )
 }

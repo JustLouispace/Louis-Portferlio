@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@svgr/webpack": "^8.1.0",
+    "@vercel/analytics": "^1.6.1",
     "framer-motion": "^11.18.2",
     "next": "^14.2.20",
     "portfolio-site-2": "file:",

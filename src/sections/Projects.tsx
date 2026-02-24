@@ -121,48 +121,25 @@ export const ProjectsSection = () => {
     },
 
    {
-      title: "Debit System & Centralized Control Hub — Security Overhaul",
+      title: "Debit System & Centralized Control Hub",
       description:
-        "Developed a comprehensive internal debit management system focusing on enterprise-grade security and scalable architecture. The project replaced flawed, scattered legacy authorization structures with a robust, centralized ecosystem that unifies permission management across multiple applications.",
-      image: DebitLogin.src, // เปลี่ยนเป็นตัวแปรรูปของคุณ
-      additionalImages: [DebitDashboard.src, DebitReport.src], // เปลี่ยนเป็นตัวแปรรูปของคุณ
-
+        "Architected and developed a comprehensive internal debit management system entirely from scratch. This enterprise-grade platform standardizes complex operational workflows, featuring advanced data visualization, automated document generation, and a strictly governed, centralized security architecture.",
+      image: DebitLogin.src, 
+      additionalImages: [DebitDashboard.src,DebitDashboard.src, DebitReport.src], 
       details: [
-        "Strict RBAC Architecture: Engineered Role-Based Access Control from the ground up, securing both UI rendering (component-level guards) and backend API endpoints (Secure by Default).",
-        "The 'Control Hub' Initiative: Architected a decoupled, centralized platform to unify permission management, user roles, and system maintenance modes across the entire enterprise ecosystem.",
-        "Type-Safe Foundation: Built a scalable frontend architecture using React, Vite, and TypeScript, enforcing strict code quality and maintainability standards for future developers.",
-        "Legacy Refactoring: Audited and resolved vulnerabilities in the previous access system, migrating hardcoded, fragmented permission logic into a single, reliable source of truth.",
+        "Advanced Data Visualization: Engineered complex Master-Detail (Parent-Child) tables and intuitive Drag-and-Drop interfaces for seamless data management.",
+        "Automated PDF Engine: Developed a custom, in-browser PDF layout engine for pixel-perfect document rendering and automated exporting.",
+        "Dynamic RBAC Security: Implemented strict Role-Based Access Control with real-time UI/Role switching and strictly guarded API endpoints.",
+        "Centralized Control Hub: Architected a decoupled admin platform to unify permission management and maintenance modes across the ecosystem.",
+        "Enterprise DevOps: Managed the entire server infrastructure, establishing zero-downtime CI/CD pipelines utilizing Nginx, PM2, and Docker on Ubuntu.",
+        "Code Governance: Enforced strict code quality standards, governed Git version control workflows, and built a type-safe foundation using TypeScript."
       ],
-      technologies: "React, Vite, TypeScript, Node.js, Express, RBAC",
+      technologies: "React, Vite, TypeScript, Node.js, Express, Docker, CI/CD",
       duration: "Ongoing",
-      role: "Lead Full-Stack Developer. Refactored legacy backend flows, enforced code quality standards, and built the modern frontend architecture from scratch.",
+      role: "Lead Full-Stack Developer & Architect. Single-handedly managed the entire product lifecycle — from UX/UI design and complex frontend state management to backend architecture, version control, and production deployment.",
       outcome:
-        "Successfully delivered a highly secure application and established a new centralized architectural standard (The Control Hub) for all future internal web projects, significantly reducing the overhead of managing user permissions.",
+        "Successfully delivered a highly secure, feature-rich application that eliminated manual debit processes. Established a new organizational benchmark for code quality, version control, and automated deployment standards.",
       links: {}
-    },
-
-    {
-      title: "LawBuddy (Winning 2nd NSC 2024 🏆)",
-      description:
-        "This law platform, developed as my 3rd-year project at KMUTT, won 2nd place in the 2024 NSC competition 🏆. It features a chatbot for legal inquiries in Thai and interactive tools for learning about the law, making legal knowledge more accessible and engaging.",
-      image: LawyerProject1.src,
-      additionalImages: [LawyerDetails.src, LawyerChatbot.src],
-      details: [
-        "AI Search: Easily find legal information with intelligent search functionality.",
-        "AI Chatbot: Ask legal questions in Thai and receive accurate, AI-powered responses.",
-        "AI Education: Interactive tools and resources to help users learn about the law effectively",
-      ],
-      technologies: "PostgreSQL, Django, React, Python, TailwindCSS, OpenAI API",
-      duration: "5 months",
-      role: "Lead Developer and AI Integration Specialist. I was responsible for designing and implementing the chatbot functionality, integrating the AI models, and developing the user interface.",
-      outcome:
-        "The project won 2nd place in the 2024 NSC competition and is now being considered for further development as a commercial product to help make legal information more accessible to the Thai public.",
-      links: {
-        figma:
-          "https://www.figma.com/design/EICm7xZ90ZWiUCvqzDFQbK/Lewyer-Near-U?node-id=1306-4413&t=TBKWDbZ0ye7zXBUW-1",
-        canva:
-          "https://www.canva.com/design/DAGip0LBN3s/p_Oa66Oxc8BBSDs2mGV82Q/edit?utm_content=DAGip0LBN3s&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
-      },
     },
     {
       title: "Nitrogen Consumption",
