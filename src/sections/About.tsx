@@ -43,7 +43,7 @@ export const AboutSection = () => {
     }, 7000)
 
     return () => clearInterval(interval)
-  }, [images.length])
+  }, [])
 
   useEffect(() => {
     if (isEducationTabActive) {
@@ -52,7 +52,7 @@ export const AboutSection = () => {
       }, 5000)
       return () => clearInterval(interval)
     }
-  }, [isEducationTabActive, educationImages.length])
+  }, [isEducationTabActive])
 
 
 
@@ -256,8 +256,8 @@ export const AboutSection = () => {
                   <div className="bg-white dark:bg-gray-800/30 rounded-2xl p-6 md:p-8 border border-gray-200 dark:border-white/5 shadow-sm mb-6">
                     <div className="flex flex-col md:flex-row md:items-start justify-between mb-4">
                       <div>
-                        <h4 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-1">Bachelor's Degree in Applied Computer Science</h4>
-                        <p className="text-yellow-600 dark:text-yellow-400 font-medium text-lg">King Mongkut's Institute of Technology Thonburi</p>
+                        <h4 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-1">Bachelor&apos;s Degree in Applied Computer Science</h4>
+                        <p className="text-yellow-600 dark:text-yellow-400 font-medium text-lg">King Mongkut&apos;s Institute of Technology Thonburi</p>
                       </div>
                       <div className="mt-3 md:mt-0 text-left md:text-right shrink-0">
                         <span className="inline-block px-4 py-1.5 bg-gray-100 dark:bg-white/10 rounded-full text-sm font-semibold text-gray-800 dark:text-gray-200">

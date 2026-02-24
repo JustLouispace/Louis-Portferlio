@@ -56,7 +56,7 @@ export const Experience = () => {
           <span className="inline-block py-1 px-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-semibold tracking-wider mb-4 border border-blue-200 dark:border-blue-800/50">CAREER</span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-gray-900 dark:text-white">Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">Journey</span></h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
-            A timeline of my professional experience, showcasing the roles and responsibilities I've taken on to build scalable and modern solutions.
+            A timeline of my professional experience, showcasing the roles and responsibilities I&apos;ve taken on to build scalable and modern solutions.
           </p>
         </motion.div>
 

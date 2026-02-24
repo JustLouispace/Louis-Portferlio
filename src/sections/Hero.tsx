@@ -113,7 +113,7 @@ export const HeroSection = () => {
 
     const timer = setTimeout(handleTyping, typingSpeed)
     return () => clearTimeout(timer)
-  }, [text, isDeleting, loopNum, typingSpeed, texts])
+  }, [text, isDeleting, loopNum, typingSpeed])
 
   return (
     <section
